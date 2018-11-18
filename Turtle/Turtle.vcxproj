@@ -69,13 +69,22 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\GLFW\lib-vc2015;$(SolutionDir)Dependencies\GLEW\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\$(Configurations)\</OutDir>
+    <IntDir>$(SolutionDir)bin\$(Configuration)\Intermediates</IntDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>glfw3.lib;glew32s.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -111,6 +120,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\graphics\buffers\buffer.cpp" />
+    <ClCompile Include="src\graphics\buffers\indexbuffer.cpp" />
+    <ClCompile Include="src\graphics\buffers\vertexarray.cpp" />
+    <ClCompile Include="src\graphics\shader.cpp" />
+    <ClCompile Include="src\graphics\window.cpp" />
+    <ClCompile Include="src\math\mat4.cpp" />
+    <ClCompile Include="src\math\vec2.cpp" />
+    <ClCompile Include="src\math\vec3.cpp" />
+    <ClCompile Include="src\math\vec4.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\graphics\buffers\buffer.h" />
+    <ClInclude Include="src\graphics\buffers\indexbuffer.h" />
+    <ClInclude Include="src\graphics\buffers\vertexarray.h" />
+    <ClInclude Include="src\graphics\shader.h" />
+    <ClInclude Include="src\graphics\window.h" />
+    <ClInclude Include="src\math\mat4.h" />
+    <ClInclude Include="src\math\maths.h" />
+    <ClInclude Include="src\math\math_general.h" />
+    <ClInclude Include="src\math\vec2.h" />
+    <ClInclude Include="src\math\vec3.h" />
+    <ClInclude Include="src\math\vec4.h" />
+    <ClInclude Include="src\utils\fileutils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\shaders\basic.frag" />
+    <None Include="src\shaders\basic.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,4 +1,4 @@
-#version 330 core
+#version 410 core
 
 layout (location = 0) out vec4 color;
 
@@ -13,7 +13,7 @@ in DATA
 
 void main()
 {
-	float intensity = 1.0 / length(fs_in.position.xy - light_pos); 
+	float intensity = 1.0 / length(fs_in.position.xy - light_pos);
 	// color = colour * intensity;
 	color = fs_in.color * intensity;
 }

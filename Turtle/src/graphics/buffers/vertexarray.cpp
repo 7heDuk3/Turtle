@@ -14,6 +14,8 @@ namespace turtle {
 			{
 				delete m_Buffers[i];
 			}
+
+			glDeleteVertexArrays(1, &m_ArrayID);
 		}
 
 		void VertexArray::addBuffer(Buffer* buffer, GLuint index)

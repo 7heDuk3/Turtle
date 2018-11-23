@@ -23,7 +23,6 @@ namespace turtle {
 			this->x = other.x;
 			this->y = other.y;
 			this->z = other.z;
-			std::cout << "Called COPY ctor" << std::endl;
 		}
 
 		vec3& vec3::add(const vec3& other)

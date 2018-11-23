@@ -24,7 +24,6 @@ namespace turtle {
 
 
 		public:
-			Window();
 			Window(const char* name, int width, int height);
 			~Window();
 			void clear() const;
@@ -32,7 +31,7 @@ namespace turtle {
 			bool closed() const;
 
 			inline int getWidth() const { return m_Width; }
-			inline int getHeight() const { return m_Height;	}
+			inline int getHeight() const { return m_Height; }
 
 			bool isKeyPressed(unsigned int keycode);
 			bool isMouseButtonPressed(unsigned int button);

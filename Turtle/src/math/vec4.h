@@ -15,7 +15,7 @@ namespace turtle {
 				 const float& w);
 
 			vec4(const vec4& other);
-			vec4 operator=(const vec4& other);
+			//vec4 operator=(const vec4& other);
 
 			vec4& add(const vec4& other);
 			vec4& subtract(const vec4& other);

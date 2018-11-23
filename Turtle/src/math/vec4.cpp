@@ -29,13 +29,12 @@ namespace turtle {
 			this->y = other.y;
 			this->z = other.z;
 			this->w = other.w;
-			std::cout << "Called COPY ctor" << std::endl;
 		}
 
-		vec4 vec4::operator=(const vec4& other)
-		{
-			return vec4(other);
-		}
+		//vec4 vec4::operator=(const vec4& other)
+		//{
+			//return vec4(other);
+		//}
 
 		vec4& vec4::add(const vec4& other)
 		{

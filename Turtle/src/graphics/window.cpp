@@ -51,7 +51,7 @@ namespace turtle {
 			glfwSetCursorPosCallback(m_Window, cursor_position_callback);
 			glfwSetKeyCallback(m_Window, key_callback);
 			glfwSetMouseButtonCallback(m_Window, mouse_button_callback);
-
+			glfwSwapInterval(0.0f);
 			std::cout << "OpenGL " << glGetString(GL_VERSION) << std::endl;
 
 			if (glewInit() != GLEW_OK)
